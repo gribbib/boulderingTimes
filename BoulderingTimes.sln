@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32127.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "BoulderingTimes.Ui", "BoulderingTimesUi\BoulderingTimes.Ui.esproj", "{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoulderingTimes.Api", "BoulderingTimes.Api\BoulderingTimes.Api.csproj", "{D4FA7085-842F-4149-B8BF-8784A3347A96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852AB41F-B1E9-44DF-AC2E-0CCFA5740347}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D4FA7085-842F-4149-B8BF-8784A3347A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4FA7085-842F-4149-B8BF-8784A3347A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4FA7085-842F-4149-B8BF-8784A3347A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4FA7085-842F-4149-B8BF-8784A3347A96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {811D08AE-CB6E-439B-BEA0-2E69B9F6BE00}
+	EndGlobalSection
+EndGlobal
