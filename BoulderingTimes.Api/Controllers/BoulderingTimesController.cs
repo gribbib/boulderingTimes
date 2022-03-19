@@ -13,12 +13,14 @@ namespace BoulderingTimes.Api.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger<BoulderingTimesController> _logger;
         private readonly WebClimberTimesLoader _webClimberTimesLoader;
+        private readonly DrPlanoTimesLoader _drPlanoTimesLoader;
 
-        public BoulderingTimesController(ILogger<BoulderingTimesController> logger, IConfiguration configuration, WebClimberTimesLoader webClimberTimesLoader)
+        public BoulderingTimesController(ILogger<BoulderingTimesController> logger, IConfiguration configuration, WebClimberTimesLoader webClimberTimesLoader, DrPlanoTimesLoader drPlanoTimesLoader)
         {
             _configuration = configuration;
             _logger = logger;
             _webClimberTimesLoader = webClimberTimesLoader;
+            _drPlanoTimesLoader = drPlanoTimesLoader;
         }
 
         [HttpGet(Name = "GetBoulderingTimes")]
@@ -61,6 +63,9 @@ namespace BoulderingTimes.Api.Controllers
             {
                 case BoulderingPlaceTypes.Webclimber:
                     timeSlots = _webClimberTimesLoader.GetTimes(requestDate, boulderingPlace);
+                    break;
+                case BoulderingPlaceTypes.DrPlano:
+                    timeSlots = _drPlanoTimesLoader.GetTimes(requestDate, boulderingPlace);
                     break;
                 default:
                     return default;

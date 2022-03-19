@@ -12,17 +12,6 @@ namespace BoulderingTimes.Api.Services
             base.BaseUrl = configuration.GetSection("baseUrls:webclimber").Value;
             HttpClient.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
         }
-        public async Task<List<TimeSlot>> GetTimesAsync(DateTime requestDate, BoulderingPlace boulderingPlace)
-        {
-            try
-            {
-                return await Task.Run(() => GetTimes(requestDate, boulderingPlace)).ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                return default;
-            }
-        }
 
         public List<TimeSlot> GetTimes(DateTime requestDate, BoulderingPlace boulderingPlace)
         {
@@ -50,8 +39,8 @@ namespace BoulderingTimes.Api.Services
                     break;
                 }
                 var timeSplit = array[i + 1].Split(" - ");
-                var start = TimeHelper.ConvertDatetimeToUnixTimeStamp(requestDate + TimeSpan.ParseExact(timeSplit[0], @"h\:m", CultureInfo.InvariantCulture));
-                var end = TimeHelper.ConvertDatetimeToUnixTimeStamp(requestDate + TimeSpan.ParseExact(timeSplit[1].Replace(" Uhr</td>", ""), @"h\:m", CultureInfo.InvariantCulture));
+                var start = TimeHelper.ConvertDatetimeToUnixTimeStamp((requestDate + TimeSpan.ParseExact(timeSplit[0], @"h\:m", CultureInfo.InvariantCulture)).ToUniversalTime());
+                var end = TimeHelper.ConvertDatetimeToUnixTimeStamp((requestDate + TimeSpan.ParseExact(timeSplit[1].Replace(" Uhr</td>", ""), @"h\:m", CultureInfo.InvariantCulture)).ToUniversalTime());
 
                 list.Add(new TimeSlot
                 {

@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<WebClimberTimesLoader>();
+builder.Services.AddSingleton<DrPlanoTimesLoader>();
 
 var app = builder.Build();
 

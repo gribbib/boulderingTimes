@@ -5,7 +5,7 @@
         public static long ConvertDatetimeToUnixTimeStamp(DateTime date)
         {
             var dateTimeOffset = new DateTimeOffset(date);
-            var unixDateTime = dateTimeOffset.ToUnixTimeSeconds();
+            long unixDateTime = dateTimeOffset.ToUnixTimeMilliseconds();
             return unixDateTime;
         }
     }
