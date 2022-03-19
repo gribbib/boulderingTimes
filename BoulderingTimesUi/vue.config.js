@@ -24,7 +24,7 @@ module.exports = {
             cert: fs.readFileSync(certFilePath),
         },
         proxy: {
-            '^/weatherforecast': {
+            '^/boulderingtimes': {
                 target: 'https://localhost:5001/'
             }
         },
