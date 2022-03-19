@@ -51,7 +51,8 @@ namespace BoulderingTimes.Api.Services
                         .Replace(" freier Platz", "")
                         .Replace(" freie Plätze", "")),
                     maxCourseParticipantCount = boulderingPlace.MaxCourseParticipantCount,
-                    dateList = new Datelist[] { new Datelist { start = start, end = end } }
+                    dateList = new Datelist[] { new Datelist { start = start, end = end } },
+                    state = "BOOKABLE"
                 });
             }
             return list;

@@ -11,7 +11,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<WebClimberTimesLoader>();
 builder.Services.AddSingleton<DrPlanoTimesLoader>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("_myAllowSpecificOrigins",
+    builder =>
+    {
+        builder.AllowAnyOrigin()
+       .AllowAnyMethod()
+       .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+app.UseCors("_myAllowSpecificOrigins");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
