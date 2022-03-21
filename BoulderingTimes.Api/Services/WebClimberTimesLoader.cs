@@ -26,6 +26,7 @@ namespace BoulderingTimes.Api.Services
             HttpClient.DefaultRequestHeaders.Add("Host", $"{boulderingPlace.Id}.webclimber.de");
             var content = base.RequestContent(boulderingPlace.Id, boulderingPlace.Method, requestDate.ToString("yyyy-MM-dd"));
 
+            // Console.Write(content);
             if (content == null)
             {
                 return list;
@@ -34,7 +35,7 @@ namespace BoulderingTimes.Api.Services
             var array = content.Split("<td>");
             for (int i = 0; i < array.Length - 1; i = i + 3)
             {
-                if (array[i + 1].Contains("Leider sind an diesem Tag keine Plätze mehr verfügbar!"))
+                if (array[i + 1].Contains("keine Plätze mehr", StringComparison.CurrentCultureIgnoreCase))
                 {
                     break;
                 }

@@ -1,7 +1,7 @@
 <template>
     <div class="post">
         <div v-if="loading" class="loading">
-            Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationvue">https://aka.ms/jspsintegrationvue</a> for more details.
+            Loading...
         </div>
         <input id="inputDate" v-model="requestDate" type="date" class="fc fc-getData-button fc-button fc-button-primary">
         <FullCalendar ref="fullCalendar" :options="calendarOptions" />
@@ -22,6 +22,7 @@
         data() {
             var self = this;
             return {
+                schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                 current: (new Date()).setHours(0, 0, 0, 0),
                 requestDate: (new Date()).toISOString().substr(0, 10),
                 loading: false,
@@ -54,12 +55,43 @@
                             buttonText: '5 Tage',
                         }
                     },                    
-                    events: [],
+                    events: [{
+                                "resourceId": "kegel-boulder",
+                                "title": "Keine Buchung notwendig",
+                                "startTime": "09:00:00",
+                                "endTime": "15:00:00",
+                                "allDAy": false,
+                                "daysOfWeek": [1, 2, 3, 4, 5],
+                                "backgroundColor": "lightblue",
+                                // "textColor": textcolor
+                            },
+                            {
+                                "resourceId": "boulderKlub",
+                                "title": "Keine Buchung notwendig",
+                                "startTime": "09:00:00",
+                                "endTime": "15:00:00",
+                                "allDAy": false,
+                                "daysOfWeek": [1, 2, 3, 4, 5],
+                                "backgroundColor": "lightblue",
+                                // "textColor": textcolor
+                            },
+                            {
+                                "resourceId": "boulderGarten",
+                                "title": "Keine Buchung notwendig",
+                                "startTime": "10:00:00",
+                                "endTime": "16:00:00",
+                                "allDAy": false,
+                                "daysOfWeek": [1, 2, 3, 4, 5],
+                                "backgroundColor": "lightblue",
+                                // "textColor": textcolor
+                            }],
                     resources: [
                         { id: 'ostbloc', title: 'Ostbloc' },
-                        { id: 'kegel-boulder', title: 'Der Kegel (bouldern)' },
+                        { id: 'kegel-boulder', title: 'Der Kegel (Bouldern)' },
                         { id: 'boulderKlub', title: 'Boulderklub' },
-                        { id: 'boulderGarten', title: 'Bouldergarten' }
+                        { id: 'boulderGarten', title: 'Bouldergarten' },
+                        { id: 'berta', title: 'Berta Block' },
+                        { id: 'sudbloc', title: 'Südbloc' }
                     ]
                 }
             };
@@ -75,7 +107,7 @@
                 //this.calendarOptions.views.resourceTimeGridAllDays.duration.days = 3; //this.requestDate - this.current;
                 let calendarApi = this.$refs.fullCalendar.getApi();
                 calendarApi.gotoDate(this.requestDate);
-                fetch('boulderingtimes/?requestDate=' + this.requestDate)
+                fetch(process.env.VUE_APP_API_URL+ '/boulderingtimes/?requestDate=' + this.requestDate)
                     .then(r => r.json())
                     .then(boulderingTimesRespones => {
                         boulderingTimesRespones.forEach(j => {

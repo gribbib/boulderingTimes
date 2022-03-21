@@ -22,3 +22,14 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+# BoulderingTimes.Api
+1. cd BoulderingTimes.Api
+1. dotnet build
+1. dotnet run
+
+# Usage of docker
+1. Install docker and docker-compose (both available in apt-get)
+1. Make sure to be in the root folder
+1. `docker-compose build`
+1. `docker-compose up`
