@@ -33,3 +33,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. Make sure to be in the root folder
 1. `docker-compose build`
 1. `docker-compose up`
+
+## push with docker-compose
+1. Make sure you have a dockerhub account and are logged in
+To login simply put `docker login`
+1. Make sure the compose is build or build with `docker-compose build`
+1. `docker-compose push`
