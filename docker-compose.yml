@@ -1,0 +1,24 @@
+version: "3"
+services:
+
+  boulderingtimes-api:
+    image: gribbib/boulderingtimes-api
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./BoulderingTimes.Api/Dockerfile
+    ports:
+      - "8080:80"
+
+  boulderingtimes-front-end:
+    image: gribbib/boulderingtimes-front-end
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./BoulderingTimesUi/Dockerfile
+      args:
+        VUE_APP_API_URL: http://localhost:8080
+    ports:
+      - "8081:80"
+    depends_on:
+      - boulderingtimes-api
