@@ -84,6 +84,16 @@
                                 "daysOfWeek": [1, 2, 3, 4, 5],
                                 "backgroundColor": "lightblue",
                                 // "textColor": textcolor
+                            },
+                            {
+                                "resourceId": "basement",
+                                "title": "Keine Buchung notwendig",
+                                "startTime": "08:00:00",
+                                "endTime": "16:00:00",
+                                "allDAy": false,
+                                "daysOfWeek": [1, 2, 3, 4, 5],
+                                "backgroundColor": "lightblue",
+                                // "textColor": textcolor
                             }],
                     resources: [
                         { id: 'ostbloc', title: 'Ostbloc' },
@@ -91,7 +101,8 @@
                         { id: 'boulderKlub', title: 'Boulderklub' },
                         { id: 'boulderGarten', title: 'Bouldergarten' },
                         { id: 'berta', title: 'Berta Block' },
-                        { id: 'sudbloc', title: 'Südbloc' }
+                        { id: 'sudbloc', title: 'Südbloc' },
+                        { id: 'basement', title: 'Basement' }
                     ]
                 }
             };
