@@ -33,6 +33,11 @@ namespace BoulderingTimes.Api.Services
             }
 
             var array = content.Split("<td>");
+            if (array[0] != "\n<table class=\"table table-striped\">\n    <tbody>\n\n\t<tr>")
+            {
+                return list;
+            }
+            
             for (int i = 0; i < array.Length - 1; i = i + 3)
             {
                 if (array[i + 1].Contains("keine Plätze mehr", StringComparison.CurrentCultureIgnoreCase))
